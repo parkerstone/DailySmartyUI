@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { Field, reduxForm } from 'redux-form'
 
+const renderInput = field => <input type="text" placeholder="Search DailySmarty" {...field.input} />
+
+
 let SearchBar = props => {
 
   const handleFormSubmit = function({query}) {
     console.log("trying to handle submit for query", query)
   }
-
-  const renderInput = field => <input type="text" placeholder="Search DailySmarty" {...field.input} />
 
   const { handleSubmit } = props
 
