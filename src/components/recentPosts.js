@@ -1,7 +1,18 @@
 import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux'
+
+import * as actions from '../actions'
+
+import Post from './post'
 
 const RecentPosts = props => {
-  
+  useEffect(() => props.fetchRecentPosts(), [])
+
+  const renderPosts = () => {
+    return props.recentPosts.map((post, index) => {
+      return index < 3 ? <Post key={index} {...post} /> : null
+    })
+  }
 
   return (
     <div className='RecentPosts'>
@@ -9,12 +20,16 @@ const RecentPosts = props => {
         Recent Posts
       </div>
       <ul className="recent-posts-posts">
-        <li>Recent Post 0</li>
-        <li>Recent Post 1</li>
-        <li>Recent Post 2</li>
+        {renderPosts()}
       </ul>
     </div>
   )
 }
 
-export default RecentPosts
+const mapStateToProps = state => {
+  return {
+    recentPosts: state.posts.recentPosts
+  }
+}
+
+export default connect(mapStateToProps, actions)(RecentPosts)

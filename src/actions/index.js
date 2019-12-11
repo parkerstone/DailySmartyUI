@@ -1,0 +1,16 @@
+import axios from 'axios'
+
+import { SET_RECENT_POSTS } from './types'
+
+export function fetchRecentPosts() {
+  return function(dispatch) {
+    axios.get('https://api.dailysmarty.com/posts')
+      .then(res => {
+        console.log(res.data.posts)
+        dispatch({
+          type: SET_RECENT_POSTS,
+          payload: res.data.posts
+        })
+      })
+  }
+}
