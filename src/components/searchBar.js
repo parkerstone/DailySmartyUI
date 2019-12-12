@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { withRouter } from 'react-router-dom'
 
-const renderInput = field => <input type="text" placeholder="Search DailySmarty" {...field.input} />
+const renderInput = field => <input type="text" placeholder="&#xf002; Search DailySmarty" {...field.input} />
 
 
 let SearchBar = props => {
@@ -14,11 +14,12 @@ let SearchBar = props => {
   const { handleSubmit } = props
 
   return (
-    <div className='SearchBar'>
-      <form onSubmit={handleSubmit(handleFormSubmit)}>
+    <form className={`SearchBar search-bar-${props.page}`} onSubmit={handleSubmit(handleFormSubmit)}>
+      <div className='search-bar-wrapper'>
         <Field name="query" component={renderInput} />
-      </form>
-    </div>
+        <p>Press return to search</p>
+      </div>
+    </form>
   )
 }
 

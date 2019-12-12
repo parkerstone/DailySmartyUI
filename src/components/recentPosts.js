@@ -10,7 +10,7 @@ const RecentPosts = props => {
 
   const renderPosts = () => {
     return props.recentPosts.map((post, index) => {
-      return index < 3 ? <Post key={index} {...post} /> : null
+      return index < 3 ? <Post key={index} type='recent' {...post} /> : null
     })
   }
 

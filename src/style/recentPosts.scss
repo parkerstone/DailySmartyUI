@@ -1,0 +1,21 @@
+.RecentPosts {
+
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 21px;
+
+  .recent-posts-heading {
+    color: $blue-one;
+    font-size: 14px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .recent-posts-posts {
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 42px;
+  }
+}

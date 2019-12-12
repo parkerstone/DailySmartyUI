@@ -10,14 +10,13 @@ import RecentPosts from './recentPosts'
 const App = props => {
 
   const handleSearchBarSubmit = function(query) {
-    props.fetchPostsWithQuery(query)
-    props.history.push('/results')
+    props.fetchPostsWithQuery(query, () => props.history.push('/results'))
   }
   
   return (
-    <div className='app'>
+    <div className='App'>
       <Logo />
-      <SearchBar onSubmit={query => handleSearchBarSubmit(query)} />
+      <SearchBar page='app' onSubmit={query => handleSearchBarSubmit(query)} />
       <RecentPosts />
     </div>
   )

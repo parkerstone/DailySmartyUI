@@ -16,7 +16,7 @@ const Results = props => {
   return (
     <div className='Results'>
       <Logo size={55} />
-      <SearchBar onSubmit={query => handleSearchBarSubmit(query)} />
+      <SearchBar page='results' onSubmit={query => handleSearchBarSubmit(query)} />
       <ResultsPosts />
     </div>
   )

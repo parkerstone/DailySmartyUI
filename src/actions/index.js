@@ -19,7 +19,7 @@ export function fetchRecentPosts() {
 }
 
 
-export function fetchPostsWithQuery(query) {
+export function fetchPostsWithQuery(query, callback) {
   return function(dispatch) {
     axios.get('https://api.dailysmarty.com/search?q=' + query)
       .then(res => {
@@ -28,6 +28,7 @@ export function fetchPostsWithQuery(query) {
           type: SET_RESULTS_POST,
           payload: res.data.posts
         })
+        callback ? callback() : null
       })
   }
 }
