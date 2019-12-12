@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const Logo = props => {
   
@@ -9,7 +10,9 @@ const Logo = props => {
 
   return (
     <div className='Logo'>
-      <img style={size} alt="Daily Smarty Logo" src="/assets/ds_circle_logo.png" />
+      <Link to='/'>
+        <img style={size} alt="Daily Smarty Logo" src="/assets/ds_circle_logo.png" />
+      </Link>
     </div>
   )
 }

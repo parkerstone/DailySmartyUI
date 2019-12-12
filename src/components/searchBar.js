@@ -8,8 +8,7 @@ const renderInput = field => <input type="text" placeholder="Search DailySmarty"
 let SearchBar = props => {
 
   const handleFormSubmit = function({query}) {
-    console.log("trying to handle submit for query", query)
-    props.history.push('/results')
+    props.onSubmit(query)
   }
 
   const { handleSubmit } = props
